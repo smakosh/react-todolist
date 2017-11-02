@@ -1,0 +1,27 @@
+.task-icon:before  {
+
+    content: '';
+}
+
+.card  {
+
+    padding: 2rem 5rem;
+}
+
+.card .input-field  {
+
+    margin-bottom: 1rem;
+}
+
+.todo  {
+
+    padding: 2rem 0;
+}
+
+.single-task  {
+
+    border-bottom: 1px solid #212121;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
