@@ -4,14 +4,23 @@ export default class SingleTask extends Component {
     constructor() {
         super();
         this.state = {
-            name: 'Learn React Js'
+            tasks: ['Learn React Js', 'Learn Node Js', 'Learn Angular Js'],
         }
     }
+
     render() {
+        var tasks = this.state.tasks;
+        tasks = tasks.map(function(name, index){
+            return (
+                <div className="single-task" key={index}>
+                    <h4 >{name}</h4>
+                    <a href="#"><i className="fa fa-close"></i></a>                
+                </div>
+            )
+        })
         return (
-            <div className="single-task">
-                <h4>{this.state.name}</h4>
-                <a href="#"><i className="fa fa-close"></i></a>
+            <div className="card">
+                {tasks}
             </div>
         );
     }
