@@ -25,3 +25,8 @@
     align-items: center;
     justify-content: space-between;
 }
+
+.fa-close {
+
+    cursor: pointer;
+}
