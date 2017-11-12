@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Tasks from './Tasks';
+import App from './App';
 
 ReactDOM.render(
-    <Tasks />,
+    <App />,
     document.getElementById('root')
 );

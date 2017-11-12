@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
-import CreateTask from './CreateTask';
-import SingleTask from './SingleTask';
 
 export default class Tasks extends Component {
+    deleteSend(index) {
+        this.props.deleteTask(index);
+        this.setState({
+            term: ''
+        })
+    }
+
     render() {
-        //const tasks = ['Learn React Js',
-                        //'Learn Node Js',
-                        //'Learn Angular Js'];
-        //var list = [
-        //    <SingleTask tasks={tasks[0]}/>,
-        //    <SingleTask tasks={tasks[1]}/>,
-        //    <SingleTask tasks={tasks[2]}/>
-        //];
         return (
-            <div>
-                <CreateTask />
-                <div className="container">
-                    <SingleTask />
-                </div>
-            </div>  
-        );
+            <div className="card">
+                {
+                    this.props.tasks.map((name, index) =>
+                        <div className="single-task" key={index}>
+                            <h4>{name}</h4>
+                            <a onClick={this.deleteSend.bind(this, index)}><i className="fa fa-close"></i></a>
+                        </div>
+                    )
+                }
+            </div>
+        )
     }
 }
