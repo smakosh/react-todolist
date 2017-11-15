@@ -15,7 +15,7 @@ export default class Tasks extends Component {
                     this.props.tasks.map((name, index) =>
                         <div className="single-task" key={index}>
                             <h4>{name}</h4>
-                            <a onClick={this.deleteSend.bind(this, index)}><i className="fa fa-close">Remove</i></a>
+                            <a onClick={this.deleteSend.bind(this, index)}><i className="fa fa-close"></i></a>
                         </div>
                     )
                 }
