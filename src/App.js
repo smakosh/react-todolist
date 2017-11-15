@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Tasks from './Tasks.js'
+import Do from './Do.js'
 
 export default class App extends Component {
     constructor() {
@@ -11,13 +12,18 @@ export default class App extends Component {
         this.deleteTask = this.deleteTask.bind(this);
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.deleteAll = this.deleteAll.bind(this);
+        this.whatIdo = this.whatIdo.bind(this)
+        this.hasTasks = this.hasTasks.bind(this)
     }
 
     deleteTask(index) {
         var tasksup = this.state.tasks.slice()
         tasksup.splice(index, 1)
-        this.setState({
-            tasks: tasksup
+        this.setState(() => {
+            return {
+                tasks: tasksup
+            }
         })
     }
 
@@ -27,10 +33,27 @@ export default class App extends Component {
 
     onSubmit(event) {
         event.preventDefault()
-        this.setState({
-            term: '',
-            tasks: [...this.state.tasks, this.state.term]
+        this.setState(() =>{
+            return {
+                term: '',
+                tasks: [...this.state.tasks, this.state.term]
+            }
         })
+    }
+    deleteAll() {
+        this.setState(() =>{
+            return {
+                tasks: []
+            }
+        })
+    }
+    hasTasks() {
+        alert('no available tasks!')
+    }
+    whatIdo() {
+        const randNum = Math.floor(Math.random() * this.state.tasks.length)
+        const task = this.state.tasks[randNum]
+        alert(task)
     }
       
     render() {
@@ -48,7 +71,19 @@ export default class App extends Component {
                         </div>
                     </form>
                 </div>
+                <Do
+                whatIdo={this.whatIdo} 
+                hasTasks={this.state.tasks.length > 0 }/>
                 <Tasks tasks={this.state.tasks} deleteTask={this.deleteTask}/>
+
+                <div className="center-text">
+                    <button 
+                            className="btn btn-rounded btn-outlined orange-btn"
+                            onClick={this.deleteAll}
+                    >
+                    Delete all
+                    </button>
+                </div>
             </div>
         );
     }

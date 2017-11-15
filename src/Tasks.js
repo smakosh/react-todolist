@@ -10,12 +10,12 @@ export default class Tasks extends Component {
 
     render() {
         return (
-            <div className="card">
+            <div className="card tasks">
                 {
                     this.props.tasks.map((name, index) =>
                         <div className="single-task" key={index}>
                             <h4>{name}</h4>
-                            <a onClick={this.deleteSend.bind(this, index)}><i className="fa fa-close"></i></a>
+                            <a onClick={this.deleteSend.bind(this, index)}><i className="fa fa-close">Remove</i></a>
                         </div>
                     )
                 }
