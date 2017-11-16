@@ -1,6 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import Title from './Title.js'
+import CreateTask from './Createtask.js'
 import Tasks from './Tasks.js'
 import Do from './Do.js'
+import DeleteAll from './DeleteAll.js'
 
 export default class App extends Component {
     constructor() {
@@ -39,6 +42,7 @@ export default class App extends Component {
                 tasks: [...this.state.tasks, this.state.term]
             }
         })
+        event.target.elements.singletask.value = ''
     }
     deleteAll() {
         this.setState(() =>{
@@ -59,31 +63,26 @@ export default class App extends Component {
     render() {
         return (
             <div className="container todo">
-                <h2>Simple todo React app</h2>
-                <div className="card create">
-                    <form onSubmit={this.onSubmit}>
-                        <div className="input-field purple-input">
-                            <span className="task-icon"></span>
-                            <input type="text" value={this.state.name} onChange={this.onChange} />
-                        </div>
-                        <div className="center-text">
-                            <button className="btn btn-rounded btn-outlined purple-btn">Submit</button>
-                        </div>
-                    </form>
-                </div>
+                <Title 
+                    title="A Simple todolist React app" 
+                />
+                <CreateTask 
+                    onSubmit={this.onSubmit} 
+                    name={this.state.name} 
+                    onChange={this.onChange} 
+                />
                 <Do
-                whatIdo={this.whatIdo} 
-                hasTasks={this.state.tasks.length > 0 }/>
-                <Tasks tasks={this.state.tasks} deleteTask={this.deleteTask}/>
+                    whatIdo={this.whatIdo} 
+                    hasTasks={this.state.tasks.length > 0 }
+                />
+                <Tasks 
+                    tasks={this.state.tasks} 
+                    deleteTask={this.deleteTask}
+                />
 
-                <div className="center-text">
-                    <button 
-                            className="btn btn-rounded btn-outlined orange-btn"
-                            onClick={this.deleteAll}
-                    >
-                    Delete all
-                    </button>
-                </div>
+                <DeleteAll 
+                    deleteAll={this.deleteAll}
+                />
             </div>
         );
     }

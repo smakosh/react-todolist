@@ -1,19 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react'
 
-class Do extends Component {
-    render() {
-        return (
-            <div className="center-text random">
-                <button 
-                className="btn btn-rounded btn-outlined green-btn"
-                onClick={this.props.whatIdo}
-                disabled={!this.props.hasTasks}
-                >
-                    What do I do?
-                </button>
-            </div>
-        );
-    }
+const Do = (props) => {
+    return (
+        <div className="center-text random">
+            <button 
+            className="btn btn-rounded btn-outlined green-btn"
+            onClick={props.whatIdo}
+            disabled={!props.hasTasks}
+            >
+                What do I do?
+            </button>
+        </div>
+    )
 }
 
-export default Do;
+export default Do

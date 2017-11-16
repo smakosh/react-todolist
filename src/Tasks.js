@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 export default class Tasks extends Component {
     deleteSend(index) {
-        this.props.deleteTask(index);
+        this.props.deleteTask(index)
         this.setState({
             term: ''
         })
