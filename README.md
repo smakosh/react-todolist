@@ -1,5 +1,5 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-# `npm start`
-# `npm test`
-# `npm run build`
+<pre>npm start</pre>
+<pre>npm test</pre>
+<pre>npm run build</pre>
