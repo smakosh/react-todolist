@@ -23,33 +23,22 @@ export default class App extends Component {
     deleteTask(index) {
         var tasksup = this.state.tasks.slice()
         tasksup.splice(index, 1)
-        this.setState(() => {
-            return {
-                tasks: tasksup
-            }
-        })
+        this.setState(() => ({ tasks: tasksup }))
     }
 
     onChange(event) {
-        this.setState({ term: event.target.value })
+        this.setState(({ term: event.target.value }))
     }
 
     onSubmit(event) {
         event.preventDefault()
-        this.setState(() =>{
-            return {
-                term: '',
-                tasks: [...this.state.tasks, this.state.term]
-            }
-        })
+        this.setState(() => ({
+            term: '',
+            tasks: [...this.state.tasks, this.state.term]}))
         event.target.elements.singletask.value = ''
     }
     deleteAll() {
-        this.setState(() =>{
-            return {
-                tasks: []
-            }
-        })
+        this.setState(() => ({tasks: []}))
     }
     hasTasks() {
         alert('no available tasks!')
