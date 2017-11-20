@@ -49,26 +49,35 @@ export default class App extends Component {
     render() {
         return (
             <div className="container todo">
-                <Title 
-                    title="A Simple todolist React app" 
-                />
-                <CreateTask 
-                    onSubmit={this.onSubmit} 
-                    name={this.state.name}
-                />
-                <Do
-                    whatIdo={this.whatIdo} 
-                    hasTasks={this.state.tasks.length > 0 }
-                />
-                <Tasks 
-                    tasks={this.state.tasks} 
-                    deleteTask={this.deleteTask}
-                />
+                <div className="row">
+                    <div className="column xlarge-2 medium-1 hide-mobile"></div>
+                    <div className="column xlarge-8 medium-10 small-12">
+                    <Title 
+                        title="A Simple todolist React app" 
+                    />
+                    <CreateTask 
+                        onSubmit={this.onSubmit} 
+                        name={this.state.name}
+                    />
+                    <Do
+                        whatIdo={this.whatIdo} 
+                        hasTasks={this.state.tasks.length > 0 }
+                    />
+                    { this.state.tasks.length > 0 ? 
+                    <Tasks 
+                        tasks={this.state.tasks} 
+                        deleteTask={this.deleteTask}
+                    /> 
+                    : null }
+                    
 
-                <DeleteAll 
-                    deleteAll={this.deleteAll}
-                    hasTasks={this.state.tasks.length > 0 }
-                />
+                    <DeleteAll 
+                        deleteAll={this.deleteAll}
+                        hasTasks={this.state.tasks.length > 0 }
+                    />
+                    </div>
+                    <div className="column xlarge-2 medium-1 hide-mobile"></div>
+                </div>
             </div>
         );
     }

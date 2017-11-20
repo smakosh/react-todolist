@@ -6,7 +6,7 @@ const Do = (props) => {
             <button 
             className="btn btn-rounded btn-outlined green-btn"
             onClick={props.whatIdo}
-            disabled={!props.hasTasks}
+            hidden={!props.hasTasks}
             >
                 What do I do?
             </button>

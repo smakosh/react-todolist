@@ -1,3 +1,13 @@
+body  {
+
+    background-color: #292929;
+}
+
+.title  {
+
+    color: #fff;
+}
+
 .task-icon:before  {
 
     content: '';
@@ -6,11 +16,21 @@
 .card  {
 
     padding: 2rem 5rem;
+    background-color: #212121;
+    color: #fff;
 }
 
 .card .input-field  {
 
     margin-bottom: 1rem;
+    width: 100%;
+}
+
+.card input[type=text]  {
+
+    background-color: #212121;
+    color: #fff;
+    border-radius: 30px;
 }
 
 .todo  {
@@ -23,13 +43,53 @@
     margin-bottom: 2rem;
 }
 
+.create form {
+
+    display: flex;
+    align-items: center;
+}
+
+
+.create .create-btn  {
+
+    position: relative;
+    right: 3rem;
+    top: 1px;
+    background: #ff9f33;
+    color: #fff;
+    transition: .3s;
+}
+
+.create-btn:hover  {
+    
+    background: #f73b19;
+    transition: .3s;
+    border-color: #f73b19;
+}
+
+.create-btn:focus  {
+
+    background: #f73b19;
+    transition: .3s;
+    border-color: #f73b19;
+}
+
 .single-task  {
 
-    border-bottom: 1px solid #222222;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: #212121;
+    color: #fff;
+    background-color: #212121;
+    box-shadow: 0 5px 13px 0 #0c0c0c7d;
+    padding: 0 1rem;
+    border-radius: 2px;
+    margin-bottom: 1rem;
+}
+
+.single-task:last-child  {
+
+    margin-bottom: unset;
 }
 
 .tasks  {
@@ -41,4 +101,13 @@
 
     cursor: pointer;
     color: #f03f3f;
+}
+
+@media screen and (max-width: 900px) {
+    .card {
+        padding: 2rem .5rem;
+    }
+    .create-btn  {
+        padding: .8rem 1.2rem;
+    }
 }
