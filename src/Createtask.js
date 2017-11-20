@@ -6,7 +6,7 @@ const CreateTask = (props) => {
             <form onSubmit={props.onSubmit}>
                 <div className="input-field purple-input">
                     <span className="task-icon"></span>
-                    <input type="text" name="singletask" value={props.name} onChange={props.onChange} />
+                    <input type="text" name="singletask" value={props.name} />
                 </div>
                 <div className="center-text">
                     <button 

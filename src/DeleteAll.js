@@ -6,6 +6,7 @@ const DeleteAll = (props) => {
                 <button 
                     className="btn btn-rounded btn-outlined orange-btn"
                     onClick={props.deleteAll}
+                    disabled={!props.hasTasks}
                 >
                 Delete all
                 </button>

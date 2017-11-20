@@ -9,11 +9,9 @@ export default class App extends Component {
     constructor() {
         super();
         this.state = {
-            term: '',
-            tasks: ['Learn React Js', 'Learn Node Js', 'Learn Angular Js']
+            tasks: []
         }
         this.deleteTask = this.deleteTask.bind(this);
-        this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.deleteAll = this.deleteAll.bind(this);
         this.whatIdo = this.whatIdo.bind(this)
@@ -26,20 +24,15 @@ export default class App extends Component {
         this.setState(() => ({ tasks: tasksup }))
     }
 
-    onChange(event) {
-        this.setState(({ term: event.target.value }))
-    }
-
     onSubmit(event) {
         event.preventDefault()
         const singletask = event.target.elements.singletask.value.trim()
-        if(singletask) {
-            this.setState(() => ({
-                term: '',
-                tasks: [...this.state.tasks, this.state.term]
-            }))
-            event.target.elements.singletask.value = ''
-        } else alert('Please enter a task!')
+        if(!singletask) {
+            alert('Please enter a task!')
+        } else if(this.state.tasks.indexOf(singletask) > -1) {
+            alert('This task already exists!')
+        } else this.setState((prevState) => ({ tasks: prevState.tasks.concat(singletask) }))
+        event.target.elements.singletask.value = ''
     }
     deleteAll() {
         this.setState(() => ({tasks: []}))
@@ -61,8 +54,7 @@ export default class App extends Component {
                 />
                 <CreateTask 
                     onSubmit={this.onSubmit} 
-                    name={this.state.name} 
-                    onChange={this.onChange} 
+                    name={this.state.name}
                 />
                 <Do
                     whatIdo={this.whatIdo} 
@@ -75,6 +67,7 @@ export default class App extends Component {
 
                 <DeleteAll 
                     deleteAll={this.deleteAll}
+                    hasTasks={this.state.tasks.length > 0 }
                 />
             </div>
         );
