@@ -32,10 +32,14 @@ export default class App extends Component {
 
     onSubmit(event) {
         event.preventDefault()
-        this.setState(() => ({
-            term: '',
-            tasks: [...this.state.tasks, this.state.term]}))
-        event.target.elements.singletask.value = ''
+        const singletask = event.target.elements.singletask.value.trim()
+        if(singletask) {
+            this.setState(() => ({
+                term: '',
+                tasks: [...this.state.tasks, this.state.term]
+            }))
+            event.target.elements.singletask.value = ''
+        } else alert('Please enter a task!')
     }
     deleteAll() {
         this.setState(() => ({tasks: []}))

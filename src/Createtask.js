@@ -9,7 +9,9 @@ const CreateTask = (props) => {
                     <input type="text" name="singletask" value={props.name} onChange={props.onChange} />
                 </div>
                 <div className="center-text">
-                    <button className="btn btn-rounded btn-outlined purple-btn">Submit</button>
+                    <button 
+                    className="btn btn-rounded btn-outlined purple-btn"
+                    >Submit</button>
                 </div>
             </form>
         </div>
