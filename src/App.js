@@ -19,11 +19,15 @@ export default class App extends Component {
     }
 
     componentDidMount() {
-        const json = localStorage.getItem('tasks')
-        const tasks = JSON.parse(json)
+        try {
+            const json = localStorage.getItem('tasks')
+            const tasks = JSON.parse(json)
 
-        if (tasks) {
-            this.setState(() => ({tasks}))
+            if (tasks) {
+                this.setState(() => ({tasks}))
+            }
+        } catch(e) {
+            alert('Something went wrong')
         }
     }
 
@@ -79,6 +83,7 @@ export default class App extends Component {
                         whatIdo={this.whatIdo} 
                         hasTasks={this.state.tasks.length > 0 }
                     />
+                    { this.state.tasks.length === 0 && <h4 className="center-text title">Please add a task to get started!</h4> } 
                     { this.state.tasks.length > 0 ? 
                     <Tasks 
                         tasks={this.state.tasks} 
