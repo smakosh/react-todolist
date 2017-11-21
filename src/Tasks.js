@@ -1,25 +1,24 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class Tasks extends Component {
-    deleteSend(index) {
-        this.props.deleteTask(index)
-        this.setState({
-            term: ''
-        })
-    }
-
-    render() {
-        return (
-            <div className="card tasks">
-                {   
-                    this.props.tasks.map((name, index) =>
-                        <div className="single-task" key={index}>
-                            <h4>{name}</h4>
-                            <a onClick={this.deleteSend.bind(this, index)}><i className="fa fa-close"></i></a>
-                        </div>
-                    )
-                }
-            </div>
-        )
-    }
+const Tasks = (props) => {
+    return (
+        <div className="card tasks">
+            {   
+                props.tasks.map((task) =>
+                    <div className="single-task" key={task}>
+                        <h4>{task}</h4>
+                        <a 
+                        onClick={(e) => {
+                        props.deleteTask(task);
+                        }}
+                        >
+                            <i className="fa fa-close"></i>
+                        </a>
+                    </div>
+                )
+            }
+        </div>
+    )
 }
+
+export default Tasks

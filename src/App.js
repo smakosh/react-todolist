@@ -40,10 +40,10 @@ export default class App extends Component {
         }
     }
 
-    deleteTask(index) {
-        var tasksup = this.state.tasks.slice()
-        tasksup.splice(index, 1)
-        this.setState(() => ({ tasks: tasksup }))
+    deleteTask(taskTodelete) {
+        this.setState((prevState) => ({
+            tasks: prevState.tasks.filter((task) => taskTodelete !== task)
+        }));
     }
 
     onSubmit(event) {
