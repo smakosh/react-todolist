@@ -1,6 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
+import './main.css'
 
 const Layout = (props) => {
     return (
@@ -17,4 +18,4 @@ const Layout = (props) => {
 ReactDOM.render(
     <Layout><App /></Layout>,
     document.getElementById('root')
-);
+)
