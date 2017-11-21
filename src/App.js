@@ -5,6 +5,7 @@ import Tasks from './Tasks.js'
 import Do from './Do.js'
 import DeleteAll from './DeleteAll.js'
 import TaskModal from './TaskModal.js'
+import Link from './Link.js'
 
 export default class App extends Component {
     constructor() {
@@ -102,6 +103,7 @@ export default class App extends Component {
                         selectedTask={this.state.selectedTask}
                         closeModal={this.closeModal}
                     />
+                    <Link />
                 </div>
         )
     }
