@@ -6,7 +6,7 @@ const CreateTask = (props) => {
             <form onSubmit={props.onSubmit}>
                 <div className="input-field orange-input">
                     <span className="task-icon"></span>
-                    <input type="text" placeholder="Add new Task" name="singletask" value={props.name} />
+                    <input type="text" placeholder="Add new Task" name="singletask" value={props.name} autocomplete="off"/>
                 </div>
                 <button className="btn btn-rounded btn-outlined orange-btn create-btn">
                     Submit
