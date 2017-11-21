@@ -18,6 +18,22 @@ export default class App extends Component {
         this.hasTasks = this.hasTasks.bind(this)
     }
 
+    componentDidMount() {
+        const json = localStorage.getItem('tasks')
+        const tasks = JSON.parse(json)
+
+        if (tasks) {
+            this.setState(() => ({tasks}))
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if(prevState.tasks.length !== this.state.tasks.length) {
+            const json = JSON.stringify(this.state.tasks)
+            localStorage.setItem('tasks', json)
+        }
+    }
+
     deleteTask(index) {
         var tasksup = this.state.tasks.slice()
         tasksup.splice(index, 1)
@@ -79,6 +95,6 @@ export default class App extends Component {
                     <div className="column xlarge-2 medium-1 hide-mobile"></div>
                 </div>
             </div>
-        );
+        )
     }
 }
