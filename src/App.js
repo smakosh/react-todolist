@@ -48,7 +48,7 @@ export default class App extends Component {
 
     onSubmit(event) {
         event.preventDefault()
-        const singletask = event.target.elements.singletask.value.trim()
+        const singletask = event.target.elements.singletask.value.trim().toLowerCase()
         if(!singletask) {
             this.setState(() => ({selectedTask: 'Please enter a task!'}))
         } else if(this.state.tasks.indexOf(singletask) > -1) {
