@@ -13,6 +13,22 @@ body  {
     content: '';
 }
 
+.Overlay  {
+
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: #181818de;
+    color: #fff;
+}
+
+.Overlay h2  {
+
+    margin-bottom: 3rem;
+}
+
 .card  {
 
     padding: 2rem 5rem;

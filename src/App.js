@@ -4,12 +4,14 @@ import CreateTask from './Createtask.js'
 import Tasks from './Tasks.js'
 import Do from './Do.js'
 import DeleteAll from './DeleteAll.js'
+import TaskModal from './TaskModal.js'
 
 export default class App extends Component {
     constructor() {
         super();
         this.state = {
-            tasks: []
+            tasks: [],
+            selectedTask: undefined
         }
         this.deleteTask = this.deleteTask.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -27,7 +29,7 @@ export default class App extends Component {
                 this.setState(() => ({tasks}))
             }
         } catch(e) {
-            alert('Something went wrong')
+            this.setState(() => ({selectedTask: 'Something went wrong!'}))
         }
     }
 
@@ -48,30 +50,30 @@ export default class App extends Component {
         event.preventDefault()
         const singletask = event.target.elements.singletask.value.trim()
         if(!singletask) {
-            alert('Please enter a task!')
+            this.setState(() => ({selectedTask: 'Please enter a task!'}))
         } else if(this.state.tasks.indexOf(singletask) > -1) {
-            alert('This task already exists!')
+            this.setState(() => ({selectedTask: 'This task already exists!'}))
         } else this.setState((prevState) => ({ tasks: prevState.tasks.concat(singletask) }))
         event.target.elements.singletask.value = ''
     }
-    deleteAll() {
+    deleteAll = () => {
         this.setState(() => ({tasks: []}))
     }
-    hasTasks() {
-        alert('no available tasks!')
+    hasTasks = () => {
+        this.setState(() => ({selectedTask: 'no available tasks!'}))
     }
-    whatIdo() {
+    whatIdo = () => {
         const randNum = Math.floor(Math.random() * this.state.tasks.length)
         const task = this.state.tasks[randNum]
-        alert(task)
+        this.setState(() => ({selectedTask: task}))
     }
-      
+    closeModal = () => {
+        this.setState(() => ({selectedTask: undefined}))
+    }
+
     render() {
         return (
-            <div className="container todo">
-                <div className="row">
-                    <div className="column xlarge-2 medium-1 hide-mobile"></div>
-                    <div className="column xlarge-8 medium-10 small-12">
+                <div className="column xlarge-8 medium-10 small-12">
                     <Title 
                         title="A Simple todolist React app" 
                     />
@@ -96,10 +98,11 @@ export default class App extends Component {
                         deleteAll={this.deleteAll}
                         hasTasks={this.state.tasks.length > 0 }
                     />
-                    </div>
-                    <div className="column xlarge-2 medium-1 hide-mobile"></div>
+                    <TaskModal
+                        selectedTask={this.state.selectedTask}
+                        closeModal={this.closeModal}
+                    />
                 </div>
-            </div>
         )
     }
 }
