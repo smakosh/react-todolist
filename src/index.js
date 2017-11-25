@@ -1,21 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
-import './main.css'
-
-const Layout = (props) => {
-    return (
-        <div className="container todo">
-            <div className="row">
-                <div className="column xlarge-2 medium-1 hide-mobile"></div>
-                {props.children}
-                <div className="column xlarge-2 medium-1 hide-mobile"></div>
-            </div>
-        </div>
-    )
-}
+import App from './components/App'
+import registerServiceWorker from './components/registerServiceWorker'
 
 ReactDOM.render(
-    <Layout><App /></Layout>,
-    document.getElementById('root')
+    <App />, document.getElementById('root')
 )
+
+registerServiceWorker()

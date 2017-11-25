@@ -1,0 +1,82 @@
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.App-title {
+  font-size: 1.5em;
+  margin-bottom: 4rem;
+}
+
+.create  {
+
+  position: relative;
+  top: -3rem;
+}
+
+.create .card  {
+
+  background: #fff;
+  box-shadow: 0 0 14px 0 rgba(0, 0, 0, .19);
+  padding: 2rem 12rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .create .card  {
+      padding: 2rem 8rem;
+    }
+}
+
+@media screen and (max-width: 900px) {
+  .create .card  {
+      padding: 2rem 4rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+  .create .card  {
+      padding: 2rem 2rem;
+    }
+}
+
+.task-icon:before  {
+  content: '';
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.deleteall  {
+
+  padding: 1rem 0;
+}
+
+.deleteall .red-btn  {
+
+  background-color: #f03f3f;
+}
+
+.link  {
+
+  padding: 2rem 0;
+}
+
+.link a {
+
+  color: #212121;
+  font-size: large;
+}
+
+.link a:visited  {
+
+  color: #212121;
+}
