@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import Header from './header'
 import Create from './create-task'
 import Tasks from './tasks'
 import Guess from './guess'
 import Deleteall from './delete-all'
 import Link from './link'
 import ModalAlert from './modal'
+// import { createStore } from 'redux'
 
 import '../styles/App.css'
 
@@ -67,7 +67,6 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Header />
         <Create 
         onSubmit={this.onSubmit} 
         />

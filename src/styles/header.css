@@ -1,0 +1,19 @@
+.routes  {
+
+    padding: 2rem 0;
+}
+
+.routes  a {
+
+    color: #fff;
+}
+
+.routes  a:first-child {
+    
+    margin-right: 1rem;
+}
+
+.routes .active  {
+
+    color: rgb(21, 146, 248);
+}

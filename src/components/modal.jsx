@@ -18,22 +18,22 @@ const customStyle = {
     }
   }
   
-  const ModalAlert = (props) => (
-      <Modal
-          isOpen={!!props.selectedTask}
-          contentLabel="todo list"
-          style={customStyle}
-          overlayClassName="Overlay"
-          onRequestClose={props.closeModal}
-      >
-          <h2>{props.selectedTask}</h2>
-          <button 
-              onClick={props.closeModal} 
-              className="btn btn-rounded btn-outlined purple-btn"
-          >
-              Close
-          </button>
-      </Modal>
-  )
+const ModalAlert = (props) => (
+    <Modal
+        isOpen={!!props.selectedTask}
+        contentLabel="todo list"
+        style={customStyle}
+        overlayClassName="Overlay"
+        onRequestClose={props.closeModal}
+    >
+        <h2>{props.selectedTask}</h2>
+        <button 
+            onClick={props.closeModal} 
+            className="btn btn-rounded btn-outlined purple-btn"
+        >
+            Close
+        </button>
+    </Modal>
+)
 
 export default ModalAlert

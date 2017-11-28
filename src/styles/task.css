@@ -45,8 +45,29 @@
     background-color: lighten(#494949, 20);
 }
 
-.fa-close {
+.buttons  {
+
+    display: flex;
+    align-items: center;
+}
+
+.buttons a:first-child  {
     
+    margin-right: 1rem;
+    margin-top: 1px;
+}
+
+.buttons .fa  {
+
     cursor: pointer;
+}
+
+.buttons .fa-close {
+
     color: #f03f3f;
+}
+
+.buttons .fa-pencil-square-o  {
+
+    color: #1f97fa;
 }
