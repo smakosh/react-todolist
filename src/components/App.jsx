@@ -54,6 +54,7 @@ export default class App extends Component {
   closeModal = () => {
     this.setState(() => ({selectedTask: undefined}))
   }
+
   onSubmit = (event) => {
     event.preventDefault()
     const singletask = event.target.elements.singletask.value.trim().toLowerCase()
@@ -61,7 +62,7 @@ export default class App extends Component {
         this.setState(() => ({selectedTask: 'Please enter a task!'}))
     } else if(this.state.tasks.indexOf(singletask) > -1) {
         this.setState(() => ({selectedTask: 'This task already exists!'}))
-    } else this.setState((prevState) => ({ tasks: prevState.tasks.concat(singletask) }))
+    } else this.setState((prevState) => ({ tasks: [...prevState.tasks, singletask] }))
     event.target.elements.singletask.value = ''
   }
   render() {
