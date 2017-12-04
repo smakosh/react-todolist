@@ -1,97 +1,10 @@
 import React, { Component } from 'react'
 import Create from './create-task'
-import Tasks from './tasks'
+import ConnectedTasks from './tasks'
 import Guess from './guess'
 import Deleteall from './delete-all'
 import Link from './link'
 import ModalAlert from './modal'
-import { createStore, combineReducers } from 'redux'
-import uuid from 'uuid'
-
-import '../styles/App.css'
-
-// actions
-
-// ADD_TASK
-const addTask = (
-  {
-    name = '',
-    type = '',
-    day = '',
-    time = '',
-    createdAt = 0
-  } = {}
-) => ({
-  type: 'ADD_TASK',
-  tasksToDo: {
-    id: uuid(),
-    name,
-    type,
-    day,
-    time,
-    createdAt
-  }
-})
-// EDIT_TASK
-
-// DELETE_TASK
-
-// DELETE_ALL
-
-const taskReducerDefaultState = []
-
-const taskReducer = (state = taskReducerDefaultState, action) => {
-  switch(action.type) {
-    case 'ADD_TASK':
-      return [
-        ...state,
-        action.tasksToDo
-      ]
-    default:
-      return state
-  }
-}
-
-const errorReducer = (state = {Error: undefined}, action) => {
-  switch(action.type) {
-    default:
-      return state
-  }
-}
-
-const store = createStore(
-  combineReducers({
-    tasksToDo: taskReducer,
-    Error: errorReducer
-  })
-)
-
-store.subscribe(() => {
-  console.log(store.getState())
-})
-
-store.dispatch(addTask(
-  { 
-    name: 'Go to sleep',
-    type: 'Lifestyle',
-    day: 'tomorrow',
-    time: '2:00 PM'
-  }
-))
-
-// dummy data
-const TasksData = {
-  tasksToDo: [{
-    id: 'bsdfkjb13784y324',
-    name: 'Learn redux',
-    type: 'design',
-    day: 'tomorrow',
-    time: '10:00',
-    createdAt: 0
-  }],
-  Error: undefined
-}
-
 
 export default class App extends Component {
   state = {
@@ -161,20 +74,15 @@ export default class App extends Component {
           : null
         }
         {
-          this.state.tasks.length === 0 &&
+          this.state.tasks.length !== 0 &&
           <div className="center-text">
             <h4>Please Enter a task!</h4>
           </div>
         }
-        { this.state.tasks.length > 0 ?
-
-          <Tasks
-            tasks={this.state.tasks}
+          <ConnectedTasks
             deleteTask={this.deleteTask}
           />
-          : null
-        }
-        { this.state.tasks.length > 0 ?
+        { this.state.tasks.length < 0 ?
           <Deleteall
             deleteAll={this.deleteAll}
           />
