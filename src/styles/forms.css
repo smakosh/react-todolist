@@ -1,0 +1,13 @@
+select, input[type="date"], input[type="time"] {
+
+    margin: 2.1rem 0;
+}
+
+.search input  {
+
+    border-radius: 4rem;
+}
+
+.search .search-icon:before {
+    content: "";
+}

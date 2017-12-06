@@ -2,6 +2,7 @@ import React from 'react'
 import '../styles/task.css'
 import { connect } from 'react-redux'
 import TaskItem from './taskItem'
+import selectTasks from '../selectors/tasks'
 
 const Tasks = (props) => (
     <div className="container">
@@ -21,7 +22,7 @@ const Tasks = (props) => (
 
 const ConnectedTasks = (state) => {
     return {
-        tasks: state.tasksToDo
+        tasks: selectTasks(state.tasksToDo, state.filters)
     }
 }
 

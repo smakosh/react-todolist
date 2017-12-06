@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { removeTask } from '../actions/tasks'
+import { connect } from 'react-redux'
 
-const TaskItem = ({ name, type, day, time }) => (
+const TaskItem = ({ dispatch, id, name, type, day, time }) => (
     <div className="single-task">
         <div>
         <h4>{name}</h4>
@@ -13,11 +15,13 @@ const TaskItem = ({ name, type, day, time }) => (
             <Link to="/edit/">
                 <i className="fa fa-pencil-square-o"></i>
             </Link>
-            <a>
+            <a onClick={(event) => {
+                dispatch(removeTask({ id: id }
+            ))}}>
                 <i className="fa fa-close"></i>
             </a>
         </div>
     </div>
 )
 
-export default TaskItem
+export default connect()(TaskItem)

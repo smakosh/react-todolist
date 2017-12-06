@@ -5,6 +5,7 @@ import Guess from './guess'
 import Deleteall from './delete-all'
 import Link from './link'
 import ModalAlert from './modal'
+import Filter from './filter'
 
 export default class App extends Component {
   state = {
@@ -32,12 +33,6 @@ export default class App extends Component {
       }
   }
 
-  deleteTask = (taskTodelete) => {
-    this.setState((prevState) => ({
-      tasks: prevState.tasks.filter((task) => taskTodelete !== task)
-    }))
-  }
-
   whatTodo = () => {
     const randNum = Math.floor(Math.random() * this.state.tasks.length)
     const task = this.state.tasks[randNum]
@@ -51,22 +46,10 @@ export default class App extends Component {
   closeModal = () => {
     this.setState(() => ({selectedTask: undefined}))
   }
-  onSubmit = (event) => {
-    event.preventDefault()
-    const singletask = event.target.elements.singletask.value.trim().toLowerCase()
-    if(!singletask) {
-        this.setState(() => ({selectedTask: 'Please enter a task!'}))
-    } else if(this.state.tasks.indexOf(singletask) > -1) {
-        this.setState(() => ({selectedTask: 'This task already exists!'}))
-    } else this.setState((prevState) => ({ tasks: prevState.tasks.concat(singletask) }))
-    event.target.elements.singletask.value = ''
-  }
   render() {
     return (
       <div>
-        <Create 
-        onSubmit={this.onSubmit} 
-        />
+        <Create />
         { this.state.tasks.length > 0 ?
           <Guess
             whatTodo={this.whatTodo}
@@ -79,9 +62,8 @@ export default class App extends Component {
             <h4>Please Enter a task!</h4>
           </div>
         }
-          <ConnectedTasks
-            deleteTask={this.deleteTask}
-          />
+          <Filter />
+          <ConnectedTasks />
         { this.state.tasks.length < 0 ?
           <Deleteall
             deleteAll={this.deleteAll}

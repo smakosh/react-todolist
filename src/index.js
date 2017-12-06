@@ -31,6 +31,7 @@ store.dispatch(addTask(
 //  store.dispatch(removeTask({ id: taskOne.tasksToDo.id }))
 // store.dispatch(editTask(taskTwo.tasksToDo.id, { day: 'Tomorrow' }))
 //  store.dispatch(deleteAll())
+// store.dispatch(setTextFilter('to'));
 console.log(store.getState())
 
 const jsx = (
