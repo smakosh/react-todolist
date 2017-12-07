@@ -9,8 +9,8 @@ export const sortByDate = () => ({
     type: 'SORT_BY_DATE'
 })
 
-// SORT_BY_TYPE
-export const sortByType = () => ({
-    type: 'SORT_BY_TYPE'
+// SORT_BY_DEADLINE
+export const sortByDeadline = () => ({
+    type: 'SORT_BY_DEADLINE'
 })
   

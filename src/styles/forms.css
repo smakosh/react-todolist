@@ -3,11 +3,33 @@ select, input[type="date"], input[type="time"] {
     margin: 2.1rem 0;
 }
 
-.search input  {
-
-    border-radius: 4rem;
-}
-
 .search .search-icon:before {
     content: "";
+    top: 0rem;
+    left: 1.6rem;
+}
+
+.flexed  {
+
+    display: flex;
+    align-items: center;
+}
+
+.search select  {
+
+    width: 40%;
+}
+
+@media screen and (max-width: 400px) {
+    .search select  {
+        
+        width: 100%;
+    }
+    .flexed  {
+
+        flex-direction: column;
+    }
+    .search .search-icon:before {
+        display: none;
+    }
 }
