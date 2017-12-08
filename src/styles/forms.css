@@ -20,8 +20,17 @@ select {
     width: 40%;
 }
 
-.card .time  {
-    margin-top: 1.3rem;
+.card .react-datepicker-wrapper  {
+    width: 100%;
+    margin-top: 1.2rem;
+}
+
+.card input[type="time"] {
+    margin-top: 2rem;
+}
+
+.card .react-datepicker__input-container {
+    width: 100%;
 }
 
 @media screen and (max-width: 400px) {

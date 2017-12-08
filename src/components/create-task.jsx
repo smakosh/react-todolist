@@ -7,9 +7,9 @@ import TaskForm from './tasksForm'
 const Create = (props) => (
     <div className="container create">
         <TaskForm 
-            // addTask={(tasks) => {
-            //     props.dispatch(addTask(tasks))
-            // }}
+            addTask={(tasks) => {
+                props.dispatch(addTask(tasks))
+            }}
         />
     </div>
 )
