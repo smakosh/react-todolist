@@ -1,62 +1,54 @@
 import React, { Component } from 'react'
 import ModalAlert from './modal'
+import moment from 'moment'
+import 'react-dates/initialize'
+import { SingleDatePicker } from 'react-dates'
+import 'react-dates/lib/css/_datepicker.css'
 
-class TaskForm extends Component {
+const now = moment()
+const today = now.format('YYYY MM D')
+
+export default class TaskForm extends Component {
     state = {
         name: '',
         type: '',
-        day: '',
+        day: moment(),
         time: '',
+        createdAt: '',
+        calendarFocused: false,
         selectedTask: undefined
     }
 
-    onSubmit = (e) => {
-        e.preventDefault()
-        const singletask = e.target.elements.singletask.value.trim().toLowerCase()
-        const type = e.target.elements.type.value
-        const date = e.target.elements.date.value
-        const time = e.target.elements.time.value
-        if(type !== 'Design' && type !== 'Code' && type !== 'Lifestyle' && type !== 'Other') {
-            this.setState(() => ({selectedTask: 'Choose a category!'}))
-        }
-        else if(!singletask && !date && !time) {
-            this.setState(() => ({selectedTask: 'Please fill in all the fields!'}))
-        } else if(this.state.name.indexOf(singletask) > -1) {
-            this.setState(() => ({selectedTask: 'This task already exists!'}))
-        } else {
-            this.setState(() => ({
-                name: singletask,
-                type: type,
-                day: date,
-                time: time
-            }))
-            console.log(this.state.name)
-            this.props.addTask(
-                {
-                    name: this.state.name,
-                    type: this.state.type,
-                    day: this.state.day,
-                    time: this.state.time
-                }
-            )
-            e.target.elements.singletask.value = ''
-            e.target.elements.type.value = ''
-            e.target.elements.date.value = ''
-            e.target.elements.time.value = ''
-        }
+    onNameChange = (e) => {
+        const name = e.target.value.trim().toLowerCase()
+        this.setState(() => ({ name }))
     }
+
+    onDateChange = (day) => {
+        this.setState(() => ({ day }))
+    }
+    onFocusChange = ({ focused }) => {
+        this.setState(() => ({ calendarFocused: focused }))
+    }
+
     closeModal = () => {
         this.setState(() => ({selectedTask: undefined}))
     }
     render() {
         return (
             <div className="card">
-                <form onSubmit={this.onSubmit}>
+                <form>
                     <div className="row">
                         <div className="column xlarge-3 small-12">
                             <div className="input-field purple-input">
                                 <span className="task-icon"></span>
-                                <input type="text" name="singletask" placeholder="Enter a new task" autoComplete="off" />
+                                <input 
+                                    type="text"
+                                    placeholder="Enter a new task" 
+                                    autoComplete="off"
+                                    value={this.state.name}
+                                    onChange={this.onNameChange}
+                                />
                             </div>
                         </div>
                         <div className="column xlarge-3 small-12">
@@ -70,13 +62,18 @@ class TaskForm extends Component {
                             </div>
                         </div>
                         <div className="column xlarge-3 small-12">
-                            <div className="input-field purple-input">
-                                <input type="date" name="date" placeholder="Pick Date" autoComplete="off" />
-                            </div>
+                            <SingleDatePicker
+                                date={this.state.day}
+                                onDateChange={this.onDateChange}
+                                focused={this.state.calendarFocused}
+                                onFocusChange={this.onFocusChange}
+                                numberOfMonths={1}
+                                isOutsideRange={() => false}
+                            />
                         </div>
                         <div className="column xlarge-3 small-12">
-                            <div className="input-field purple-input">
-                                <input type="time" name="time" placeholder="Setup time" autoComplete="off" />
+                            <div className="input-field purple-input time">
+                                <input type="text" name="time" placeholder="Setup time" autoComplete="off" />
                             </div>
                         </div>
                     </div>
@@ -92,5 +89,3 @@ class TaskForm extends Component {
         );
     }
 }
-
-export default TaskForm

@@ -1,4 +1,4 @@
-select, input[type="date"], input[type="time"] {
+select {
 
     margin: 2.1rem 0;
 }
@@ -18,6 +18,10 @@ select, input[type="date"], input[type="time"] {
 .search select  {
 
     width: 40%;
+}
+
+.card .time  {
+    margin-top: 1.3rem;
 }
 
 @media screen and (max-width: 400px) {
