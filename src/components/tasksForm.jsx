@@ -19,7 +19,7 @@ export default class TaskForm extends Component {
     }
 
     onNameChange = (e) => {
-        const name = e.target.value.trim().toLowerCase()
+        const name = e.target.value
         this.setState(() => ({ name }))
     }
 

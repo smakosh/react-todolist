@@ -12,17 +12,7 @@ const Tasks = (props) => (
         <div className='card center-text add-card'>
           <Link to="/create">Add new Task</Link>
         </div>
-        {
-            props.tasks.length === 0 &&
-            <div className="center-text">
-            <h4>Please Enter a task!</h4>
-            </div>
-        }
-        {
-            props.tasks.length > 4 ?
-            <Filter />
-            : null
-        }
+        <Filter />
         <div className="row">
             <div className="column xlarge-2 medium-2 hide-mobile"></div>
             <div className="column xlarge-8 medium 8 small-12">
