@@ -15,7 +15,7 @@ const Tasks = (props) => (
             </div>
         }
         {
-            props.tasks.length > 0 ?
+            props.tasks.length > 4 ?
             <Filter />
             : null
         }

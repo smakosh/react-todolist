@@ -4,16 +4,13 @@ import moment from 'moment'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
-const now = moment()
-const today = now.format('YYYY MM D')
-
 export default class TaskForm extends Component {
     state = {
         name: '',
-        type: '',
+        type: 'Code',
         day: moment(),
         time: '',
-        createdAt: today,
+        createdAt: moment(),
         selectedTask: undefined
     }
 
@@ -24,7 +21,7 @@ export default class TaskForm extends Component {
 
     onDateChange = (day) => {
         if(!day) {
-            this.setState(() => ({ day: today }))
+            this.setState(() => ({ day: moment() }))
         } else {
             this.setState(() => ({ day }))
         }
@@ -35,17 +32,15 @@ export default class TaskForm extends Component {
         this.setState(() => ({ time }))
     }
 
+    onTypeChange = (e) => {
+        const type = e.target.value
+        this.setState(() => ({ type }))
+    }
+
     onSubmit = (e) => {
         e.preventDefault()
-        const type = e.target.type.value
-        this.setState(() => ({ type }))
         
-        if(this.state.day === '') {
-            const day = moment()
-            this.setState(() => ({ day }))
-        }
-        
-        if(this.state.name === '' || this.state.type === '' || this.state.day === '' || this.state.time === '') {
+        if(!this.state.name || !this.state.day || !this.state.type || !this.state.time) {
             this.setState(() => ({ selectedTask: 'Fill in all the fields' }))
         } else {
             this.props.addTask(
@@ -61,7 +56,7 @@ export default class TaskForm extends Component {
             this.setState(() => (
                 {
                     name: '',
-                    type: '',
+                    type: 'Code',
                     day: moment(),
                     time: ''
                 }
@@ -91,7 +86,7 @@ export default class TaskForm extends Component {
                         </div>
                         <div className="column xlarge-3 small-12">
                             <div className="input-field purple-input">
-                                <select name="type">
+                                <select name="type" onChange={this.onTypeChange} value={this.state.type}>
                                     <option defaultValue value="Code">Code</option>
                                     <option value="Design">Design</option>
                                     <option value="Lifestyle">Lifestyle</option>
@@ -106,7 +101,7 @@ export default class TaskForm extends Component {
                                     todayButton={"Today"}
                                     selected={this.state.day}
                                     onChange={this.onDateChange}
-                                    minDate={moment().format('YYYY MM D')}
+                                    minDate={moment()}
                                 />
                             </div>
                         </div>
