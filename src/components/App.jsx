@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import Create from './create-task'
 import ConnectedTasks from './tasks'
-import Link from './link'
+import Github from './link'
 
 export default class App extends Component {
 
@@ -28,9 +27,8 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <Create />
         <ConnectedTasks />
-        <Link />
+        <Github />
       </div>
     )
   }

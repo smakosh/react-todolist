@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Link = () =>  {
+const Github = () =>  {
     const href = 'https://github.com/smakosh/react-todolist'
     return (
         <div className="center-text link">
@@ -9,4 +9,4 @@ const Link = () =>  {
     )
 }
 
-export default Link
+export default Github

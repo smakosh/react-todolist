@@ -8,7 +8,7 @@ const About = () => (
             <p>
                 I'm Ismail Ghallou aka Smakosh, a young self-taught graphic,
                 UI/UX designer & front end developer who enjoys learning, creating &
-                obviously learning!
+                obviously Earning!
             </p>
         </div>
     </div>

@@ -8,9 +8,14 @@
     color: #fff;
 }
 
-.routes  a:first-child {
+.routes  a {
     
     margin-right: 1rem;
+}
+
+.routes  a:last-child{
+    
+    margin-right: unset;
 }
 
 .routes .active  {

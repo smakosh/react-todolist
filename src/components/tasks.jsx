@@ -5,9 +5,13 @@ import TaskItem from './taskItem'
 import selectTasks from '../selectors/tasks'
 import DeleteAll from './delete-all'
 import Filter from './filter'
+import { Link } from 'react-router-dom'
 
 const Tasks = (props) => (
     <div className="container">
+        <div className='card center-text add-card'>
+          <Link to="/create">Add new Task</Link>
+        </div>
         {
             props.tasks.length === 0 &&
             <div className="center-text">

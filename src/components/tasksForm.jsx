@@ -5,13 +5,17 @@ import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 
 export default class TaskForm extends Component {
-    state = {
-        name: '',
-        type: 'Code',
-        day: moment(),
-        time: '',
-        createdAt: moment(),
-        selectedTask: undefined
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            name: props.task ? props.task.name : '',
+            type: props.task ? props.task.type : 'Code',
+            day: props.task ? moment(props.task.day) : moment(),
+            time: props.task ? props.task.time : '',
+            createdAt: props.task ? moment(props.task.createdAt) : moment(),
+            selectedTask: undefined
+        }
     }
 
     onNameChange = (e) => {
@@ -43,13 +47,13 @@ export default class TaskForm extends Component {
         if(!this.state.name || !this.state.day || !this.state.type || !this.state.time) {
             this.setState(() => ({ selectedTask: 'Fill in all the fields' }))
         } else {
-            this.props.addTask(
+            this.props.onSubmit(
                 {
                     name: this.state.name,
                     type: this.state.type,
                     day: this.state.day.valueOf(),
                     time: this.state.time,
-                    createdAt: this.state.createdAt
+                    createdAt: this.state.createdAt.valueOf()
                 }
             )
             e.target.type.value = ''

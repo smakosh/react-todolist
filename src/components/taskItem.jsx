@@ -12,7 +12,7 @@ const TaskItem = ({ dispatch, id, name, type, day, time }) => (
         <p>{time}</p>
         </div>
         <div className="buttons">
-            <Link to="/edit/">
+            <Link to={`/edit/${id}`}>
                 <i className="fa fa-pencil-square-o"></i>
             </Link>
             <a onClick={(event) => {

@@ -1,23 +1,27 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import TaskForm from './tasksForm'
+import { editTask } from '../actions/tasks'
 
 const EditTask = (props) => {
+    console.log(props.task)
     return (
-        <div>
-            <div className="container create">
-                <div className="card">
-                    <form>
-                        <div className="input-field purple-input">
-                            <span className="task-icon"></span>
-                            <input type="text" value={props.match.params.task} name="editTask" autoComplete="off" />
-                        </div>
-                        <div className="center-text">
-                            <button type="submit" className="btn btn-rounded btn-outlined purple-btn">Submit</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+        <div className="container create">
+            <TaskForm
+                task={props.task}
+                onSubmit={(task) => {
+                    props.dispatch(editTask(props.task.id, task))
+                    props.history.push('/')
+                }}
+            />
         </div>
     )
 }
 
-export default EditTask
+const mapStateToProps = (state, props) => {
+    return {
+        task: state.tasksToDo.find((task) => task.id === props.match.params.id)
+    }
+}
+
+export default connect(mapStateToProps)(EditTask)

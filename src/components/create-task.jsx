@@ -7,8 +7,9 @@ import TaskForm from './tasksForm'
 const Create = (props) => (
     <div className="container create">
         <TaskForm 
-            addTask={(tasks) => {
-                props.dispatch(addTask(tasks))
+            onSubmit={(task) => {
+                props.dispatch(addTask(task))
+                props.history.push('/')
             }}
         />
     </div>
@@ -16,7 +17,7 @@ const Create = (props) => (
 
 const ConnectCreate = (state) => {
     return {
-        tasks: state.tasksToDo
+        task: state.tasksToDo
     }
 }
 

@@ -57,3 +57,27 @@
 
     color: #1f97fa;
 }
+
+.add-card  {
+
+    padding: 2rem 0;
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+    top: -2.5rem;
+    background-color: #fff;
+}
+
+.add-card a  {
+
+    color: #222;
+    font-weight: 500;
+    transition: .3s;
+    font-size: 14pt;
+}
+
+.add-card a:hover  {
+
+    color: #1f97fa;
+    transition: .3s;
+}
