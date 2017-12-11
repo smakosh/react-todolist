@@ -2,13 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { removeTask } from '../actions/tasks'
 import { connect } from 'react-redux'
+import moment from 'moment'
 
 const TaskItem = ({ dispatch, id, name, type, day, time }) => (
     <div className="single-task">
         <div>
         <h4>{name}</h4>
         <p>{type}</p>
-        <p>{day}</p>
+        <p>{moment(day).format('YYYY MM D')}</p>
         <p>{time}</p>
         </div>
         <div className="buttons">
