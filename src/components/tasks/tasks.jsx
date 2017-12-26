@@ -1,11 +1,13 @@
 import React from 'react'
-import '../styles/task.css'
 import { connect } from 'react-redux'
-import TaskItem from './taskItem'
-import selectTasks from '../selectors/tasks'
+import { Link } from 'react-router-dom'
+
+import SingleTask from './single-task'
+import selectTasks from '../../selectors/tasks'
 import DeleteAll from './delete-all'
 import Filter from './filter'
-import { Link } from 'react-router-dom'
+
+import '../../styles/task.css'
 
 const Tasks = (props) => (
     <div className="container">
@@ -18,7 +20,7 @@ const Tasks = (props) => (
             <div className="column xlarge-8 medium 8 small-12">
                 <div className="tasks">
                     { props.tasks.map((task) => {
-                        return <TaskItem key={task.id} {...task} />
+                        return <SingleTask key={task.id} {...task} />
                     })}
                 </div>
             </div>

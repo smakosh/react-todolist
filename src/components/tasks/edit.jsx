@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
+
 import TaskForm from './tasksForm'
-import { editTask } from '../actions/tasks'
+import { editTask } from '../../actions/tasks'
 
 const EditTask = (props) => {
     console.log(props.task)

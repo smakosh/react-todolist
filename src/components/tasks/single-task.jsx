@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { removeTask } from '../actions/tasks'
 import { connect } from 'react-redux'
 import moment from 'moment'
 
-const TaskItem = ({ dispatch, id, name, type, day, time }) => (
+import { removeTask } from '../../actions/tasks'
+
+const SingleTask = ({ dispatch, id, name, type, day, time }) => (
     <div className="single-task">
         <div>
         <h4>{name}</h4>
@@ -25,4 +26,4 @@ const TaskItem = ({ dispatch, id, name, type, day, time }) => (
     </div>
 )
 
-export default connect()(TaskItem)
+export default connect()(SingleTask)

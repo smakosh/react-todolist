@@ -1,5 +1,4 @@
 // tasks Reducer
-
 const taskReducerDefaultState = []
 
 const taskReducer = (state = taskReducerDefaultState, action) => {

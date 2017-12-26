@@ -1,7 +1,8 @@
 import React from 'react'
-import logo from '../assets/logo.svg'
 import { NavLink } from 'react-router-dom'
-import '../styles/header.css'
+
+import logo from '../../assets/logo.svg'
+import '../../styles/header.css'
 
 const Header = () => (
     <div className="App-header container-full">
@@ -15,4 +16,4 @@ const Header = () => (
     </div>
 )
 
-export default Header;
+export default Header

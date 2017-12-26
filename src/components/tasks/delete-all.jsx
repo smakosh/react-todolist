@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { deleteAll } from '../actions/tasks'
+import { deleteAll } from '../../actions/tasks'
 
 const Deleteall = ({ dispatch }) => (
     <div className="center-text deleteall">

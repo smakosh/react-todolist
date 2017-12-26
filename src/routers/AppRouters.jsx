@@ -1,10 +1,10 @@
 import React from 'react'
 import App from '../components/App'
 import About from '../components/about'
-import Header from '../components/header'
+import Header from '../components/includes/header'
 import Notfound from '../components/404'
-import Create from '../components/create-task'
-import EditTask from '../components/edit'
+import Create from '../components/tasks/create'
+import EditTask from '../components/tasks/edit'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 

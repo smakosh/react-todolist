@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import ModalAlert from './modal'
 import moment from 'moment'
 import DatePicker from 'react-datepicker'
+import ModalAlert from './modal'
 import 'react-datepicker/dist/react-datepicker.css'
 
 export default class TaskForm extends Component {
@@ -129,6 +129,6 @@ export default class TaskForm extends Component {
                     closeModal={this.closeModal}
                 />
             </div>
-        );
+        )
     }
 }

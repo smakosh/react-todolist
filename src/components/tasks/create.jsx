@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addTask } from '../actions/tasks'
-import '../styles/forms.css'
+import { addTask } from '../../actions/tasks'
+import '../../styles/forms.css'
 import TaskForm from './tasksForm'
 
 const Create = (props) => (
