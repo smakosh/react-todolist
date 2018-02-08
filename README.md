@@ -6,6 +6,6 @@ To view the app built with React & Redux, check this branch: https://github.com/
 To view the app built with React/Redux & Firebase, check this repository: https://github.com/smakosh/Todo-app
 & here's the link of the app: http://firebaseapp.smakosh.com
 
-<pre>npm start</pre>
-<pre>npm test</pre>
-<pre>npm run build</pre>
+	npm start
+	npm test
+	npm run build
